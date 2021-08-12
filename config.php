@@ -2,19 +2,14 @@
 unset($CFG);
 global $CFG;
 $CFG = new stdClass();
-$dbopts = parse_url(getenv('HEROKU_POSTGRESQL_MAUVE_URL'));
 
-//$CFG->dbhost    = getenv('DATABASE_HOST');
-//$CFG->dbname    = getenv('DATABASE_NAME');
-//$CFG->dbuser    = getenv('DATABASE_USER');
-//$CFG->dbpass    = getenv('DATABASE_PASSWORD');
-//$CFG->prefix    = 'mdl_';
-
+$CFG->dbhost    = getenv('DATABASE_HOST');
+$CFG->dbname    = getenv('DATABASE_NAME');
+$CFG->dbuser    = getenv('DATABASE_USER');
+$CFG->dbpass    = getenv('DATABASE_PASS');
+$CFG->prefix    = 'mdl_';
 $CFG->dbtype    = 'pgsql';
 $CFG->dblibrary = 'native';
-$CFG->dbhost    = $dbopts["host"];
-$CFG->dbuser    = $dbopts["user"];
-$CFG->dbpass    = $dbopts["pass"];
 $CFG->prefix    = 'mdl_';
 
 $CFG->dboptions = array (
