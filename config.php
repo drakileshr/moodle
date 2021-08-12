@@ -1,17 +1,16 @@
 <?php  // Moodle configuration file
+
 unset($CFG);
 global $CFG;
 $CFG = new stdClass();
 
+$CFG->dbtype    = getenv('DATABASE_TYPE');
+$CFG->dblibrary = 'native';
 $CFG->dbhost    = getenv('DATABASE_HOST');
 $CFG->dbname    = getenv('DATABASE_NAME');
 $CFG->dbuser    = getenv('DATABASE_USER');
-$CFG->dbpass    = getenv('DATABASE_PASS');
+$CFG->dbpass    = getenv('DATABASE_PASSWORD');
 $CFG->prefix    = 'mdl_';
-$CFG->dbtype    = 'pgsql';
-$CFG->dblibrary = 'native';
-$CFG->prefix    = 'mdl_';
-
 $CFG->dboptions = array (
   'dbpersist' => 0,
   'dbport' => getenv('DATABASE_PORT'),
